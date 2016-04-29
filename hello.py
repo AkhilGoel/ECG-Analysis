@@ -34,7 +34,7 @@ def analyse():
             if line:
                 value.append(float(line))
         result = functions.getAnalysed(value)
-        return jsonify({"mean":result['mean'],"Heart Rate":result['Heart Rate'],"std_dev":result['std_dev'],"variance":result['variance'],"cv":result['cv'],"std_dev_diff":result['std_dev_diff'],"rms_diff":result['rms_diff']})
+        return jsonify({"mean":round(result['mean'],2),"Heart Rate":round(result['Heart Rate'],2),"std_dev":round(result['std_dev'],2),"variance":round(result['variance'],2),"cv":round(result['cv'],2),"std_dev_diff":round(result['std_dev_diff'],2),"rms_diff":round(result['rms_diff'],2)})
     else:
         abort(404)
 
