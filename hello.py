@@ -1,5 +1,6 @@
 import os, io
 import random
+import numpy as np
 from flask import Flask, request, jsonify, send_file, abort, render_template
 from werkzeug import secure_filename
 import functions
@@ -24,7 +25,7 @@ def analyse():
         filename = secure_filename(data.filename)
         in_memory_file = io.BytesIO()
         data.save(in_memory_file)
-        data = data.read()
+        data = np.fromstring(in_memory_file.getvalue(), dtype=np.uint8)
         text = ''.join(chr(i) for i in data)
         value = []
         t = text.split("\n")
@@ -42,3 +43,5 @@ def analyse():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port, debug=True)
+
+# and allowed_file(file.filename)
