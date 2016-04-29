@@ -33,8 +33,8 @@ def analyse():
         for line in t:
             if line:
                 value.append(float(line))
-        
-        return str(len(value))
+        result = functions.getAnalysed(value)
+        return jsonify({"mean":result['mean'],"Heart Rate":result['Heart Rate'],"std_dev":result['std_dev'],"variance":result['variance'],"cv":result['cv'],"std_dev_diff":result['std_dev_diff'],"rms_diff":result['rms_diff']})
     else:
         abort(404)
 
