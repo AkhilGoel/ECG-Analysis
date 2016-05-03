@@ -66,7 +66,8 @@ def fft():
         arrPeaks.append(peak[2]-peak[1])
         for i in arrPeak[1:len(arrPeak)-1]:
             arrPeaks.append(i)
-        peaks = peaks/500
+        for i in range(len(peaks)):
+            peaks[i] = peaks[i]/500
         inter = []
         i=peaks[0]
         while i <= peaks[len(peaks)-1]:
