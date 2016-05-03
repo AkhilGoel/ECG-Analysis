@@ -54,19 +54,17 @@ def fft():
         for line in t:
             if line:
                 value.append(float(line))
-        peak = []
         peak = functions.peaks(value)
         peaks = []
         peaks.append(0)
-        for i in peak[0:len(peak)-1]:
+        for i in peak[1:len(peak)]:
             peaks.append(i)
-        arrPeak = []
         arrPeak = functions.diffarr(peak)
         arrPeaks = []
         arrPeaks.append(peak[1]-peak[0])
-        for i in arrPeak[1:len(arrPeak)-1]:
+        for i in arrPeak[1:len(arrPeak)]:
             arrPeaks.append(i)
-        for i in range(0,len(peaks)):
+        for i in range(len(peaks)):
             peaks[i] = peaks[i]/500
         inter = []
         i=peaks[0]
