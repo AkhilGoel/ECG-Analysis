@@ -72,7 +72,7 @@ def fft():
             i = i+0.25
         k=0
         for i in inter:
-            if i == peaks[k]
+            if i == peaks[k]:
                 inter.remove(i)
                 k = k+1    
         arr_interpolate = interpolate.spline(peaks,arrPeaks,intet,order=3,kind='smoothest',conds=None)
