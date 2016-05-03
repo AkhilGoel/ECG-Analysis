@@ -2,8 +2,6 @@
  <html>
  <head>
  	<title>ECG Signal Analysis</title>
- 	<link rel='icon' type='image/jpe' href='quezx-logo.png'>
-  <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 <!-- Optional theme -->
@@ -27,13 +25,13 @@
   <div style="position: absolute;
     left: 600px;
     top: 100px; color: #27B567">
-    <h1>Extract Features</h1><br>
+    <h1>Upload File</h1><br>
   </div>
-  <form method="post" action="https://mecg.herokuapp.com/analyse">
+  <form method="POST" enctype="multipart/form-data" action="https://mecg.herokuapp.com/analyse">
       <div class = "input-group" style="position: absolute;
     left: 500px;
     top: 180px">
-      <input type = "file"   id = "inputfile"></br>      
+      <input type = "file" name="file" id = "inputfile"></br>      
       <button type = "submit" style="position: absolute;left: 400px;top: 1px" class = "btn btn-primary">Submit</button>
       </div>  
   </form>
