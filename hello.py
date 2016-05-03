@@ -16,7 +16,7 @@ def allowed_file(filename):
 
 @app.route("/")
 def hello():
-    return "bye"
+     return render_template('index.html')
 
 @app.route("/analyse", methods=['POST'])
 def analyse():
