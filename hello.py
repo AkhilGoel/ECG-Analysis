@@ -75,7 +75,7 @@ def fft():
             if i == peaks[k]
                 inter.remove(i)
                 k = k+1    
-        arr_interpolate = scipy.interpolate.spline(peaks,arrPeaks,intet,order=3,kind='smoothest',conds=None)
+        arr_interpolate = interpolate.spline(peaks,arrPeaks,intet,order=3,kind='smoothest',conds=None)
         ps = np.abs(np.fft.fft(arr_interpolate))**2
         time_step = 1/4
         freqs = np.fft.fftfreq(arr_interpolate.size,time_step)
