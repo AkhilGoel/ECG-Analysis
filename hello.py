@@ -54,11 +54,13 @@ def fft():
         for line in t:
             if line:
                 value.append(float(line))
+        peak = []
         peak = functions.peaks(value)
         peaks = []
         peaks.append(0)
         for i in peak[1:len(peak)-1]:
             peaks.append(i)
+        arrPeak = []
         arrPeak = functions.diffarr(peak)
         arrPeaks = []
         arrPeaks.append(peak[2]-peak[1])
@@ -74,13 +76,14 @@ def fft():
         for i in inter:
             if i == peaks[k]:
                 inter.remove(i)
-                k = k+1    
+                k = k+1
+        arr_inerpolate = []
         arr_interpolate = interpolate.spline(peaks,arrPeaks,intet,order=3,kind='smoothest',conds=None)
         ps = np.abs(np.fft.fft(arr_interpolate))**2
         time_step = 1/4
         freqs = np.fft.fftfreq(arr_interpolate.size,time_step)
         idx = np.argsort(freqs)
-        return idx
+        return str(idx)  
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
