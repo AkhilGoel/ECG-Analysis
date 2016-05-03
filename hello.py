@@ -39,7 +39,48 @@ def analyse():
     else:
         abort(404)
 
-
+@app.route("/fft", methods=['POST'])
+def fft():
+    data = request.files.get('file', '')
+    if data:
+        filename = secure_filename(data.filename)
+        in_memory_file = io.BytesIO()
+        data.save(in_memory_file)
+        data = np.fromstring(in_memory_file.getvalue(), dtype=np.uint8)
+        text = ''.join(chr(i) for i in data)
+        value = []
+        t = text.split("\n")
+        t = t[0:len(t)-1]
+        for line in t:
+            if line:
+                value.append(float(line))
+        peak = functions.peaks(value)
+        peaks = []
+        peaks.append(0)
+        for i in peak[1:len(peak)-1]:
+            peaks.append(i)
+        arrPeak = diffarr(peak)
+        arrPeaks = []
+        arrPeaks.append(peak[2]-peak[1])
+        for i in arrPeak[1:len(arrPeak)-1]:
+            arrPeaks.append(i)
+        peaks = peaks/500
+        inter = []
+        i=peaks[0]
+        while i <= peaks[len(peaks)-1]:
+            inter.append(i)
+            i = i+0.25
+        k=0
+        for i in inter:
+            if i == peaks[k]
+                inter.remove(i)
+                k = k+1    
+        arr_interpolate = scipy.interpolate.spline(peaks,arrPeaks,intet,order=3,kind='smoothest',conds=None)
+        ps = np.abs(np.fft.fft(arr_interpolate))**2
+        time_step = 1/4
+        freqs = np.fft.fftfreq(arr_interpolate.size,time_step)
+        idx = np.argsort(freqs)
+        return idx
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
