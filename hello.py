@@ -78,12 +78,12 @@ def fft():
                 inter.remove(i)
                 k = k+1
         arr_inerpolate = []
-        #arr_interpolate = interpolate.spline(peaks,arrPeaks,inter,order=3,kind='smoothest',conds=None)
-        #ps = np.abs(np.fft.fft(arr_interpolate))**2
+        arr_interpolate = interpolate.spline(peaks,arrPeaks,inter,order=3,kind='smoothest',conds=None)
+        ps = np.abs(np.fft.fft(arr_interpolate))**2
         time_step = 1/4
-        #freqs = np.fft.fftfreq(arr_interpolate.size,time_step)
-        #idx = np.argsort(freqs)
-        return str([len(peaks),len(arrPeaks)])  
+        freqs = np.fft.fftfreq(arr_interpolate.size,time_step)
+        idx = np.argsort(freqs)
+        return str(idx)  
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
