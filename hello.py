@@ -59,6 +59,7 @@ def fft():
         peaks.append(0)
         for i in peak[1:len(peak)]:
             peaks.append(i)
+        peaks = peaks[0:len(peaks)-2]
         arrPeak = functions.diffarr(peak)
         arrPeaks = []
         arrPeaks.append(peak[1]-peak[0])
