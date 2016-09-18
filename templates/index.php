@@ -12,7 +12,7 @@
 
 </head>
  <body>
- <center><h1 style="position: absolute;left: 630px;color: #371FD5">ECG(IOP)</h1></center> 
+ <center><h1 style="position: absolute;left: 630px;color: #371FD5">B.Tech Project <br> ECG Signal Analysis</h1></center> 
   <div style="position: absolute;
     left: 600px;
     top: 100px; color: #27B567">
