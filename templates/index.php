@@ -12,19 +12,14 @@
 
 </head>
  <body>
- <center><h1 style="position: absolute;left: 630px;color: #371FD5">B.Tech Project <br> ECG Signal Analysis</h1></center> 
-  <div style="position: absolute;
-    left: 600px;
-    top: 100px; color: #27B567">
-    <h1>Upload File</h1><br>
-  </div>
+ <center><h1>B.Tech Project <br> ECG Analysis</h1>
+    <h3>Upload File</h3><br>
   <form method="POST" enctype="multipart/form-data" action="https://mecg.herokuapp.com/analyse">
-      <div class = "input-group" style="position: absolute;
-    left: 500px;
-    top: 180px">
-      <input type = "file" name="file" id = "inputfile"></br>      
-      <button type = "submit" style="position: absolute;left: 400px;top: 1px" class = "btn btn-primary">Submit</button>
+      <div class = "input-group">
+      <input type = "file" name="file" id = "inputfile"><br>
+      <button type = "submit" class = "btn btn-primary">Submit</button>
       </div>  
   </form>
+</center> 
  </body>
  </html>
